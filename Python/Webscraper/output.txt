@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"4b66539c25",applicationID:"359151563"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(c(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(5),c=e(6),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,n){s[n]=i(p+n,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(l+"tracer",[u.now(),e,t],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&d("lcp",[t[t.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var n=Math.round(e.timeStamp),t={type:e.type};n<=p.now()?t.fid=p.now()-n:n>p.offset&&n<=Date.now()?(n-=p.offset,t.fid=p.now()-n):n=p.now(),g=!0,d("timing",["fi",n,t])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(4),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e){function n(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,n,!1)}n.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],5:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],6:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],7:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function t(t,r,i,o){if(!p.aborted||o){e&&e(t,r,i);for(var a=n(i),c=v(t),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[t]];return d&&d.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(t)}function y(e,n){u(e,function(e,t){n=n||"feature",w[t]=n,n in s||(s[n]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(5),s={},d={},p=n.exports=i();p.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(w,function(n,t){e[n]||(e[n]=t)});var t=a();f("mark",["onload",t+E.offset],null,"api"),f("timing",["load",t]);var r=l.createElement("script");r.src="https://"+e.agent,n.parentNode.insertBefore(r,n)}}function i(){"complete"===l.readyState&&o()}function o(){f("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(c=Math.max((new Date).getTime(),c))-E.offset}var c=(new Date).getTime(),f=e("handle"),u=e(5),s=e("ee"),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,y=g&&g.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var h=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1177.min.js"},b=g&&y&&y[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:c,now:a,origin:h,features:{},xhrWrappable:b,userAgent:d};e(1),e(2),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),f("mark",["firstbyte",c],null,"api");var x=0,O=e(7)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(6),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof t?t(r,a):t||{}}catch(u){p([u,"",[r,a,i],c])}s(n+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(n+"err",[r,a,d],c),d}finally{s(n+"end",[r,a,f],c)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<n.length;f++)c=n[f],a=e[c],r(a)||(e[c]=t(a,u?c+i:i,o,c))}function s(t,r,i){if(!f||n){var o=f;f=!0;try{e.emit(t,r,i,n)}catch(a){p([a,t,r,i])}f=o}}function d(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){p([r])}for(var i in e)c.call(e,i)&&(n[i]=e[i]);return n}function p(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<title>Museum - Stardew Valley Wiki</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>window.RLQ = window.RLQ || []; window.RLQ.push( function () {
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Museum","wgTitle":"Museum","wgCurRevisionId":101256,"wgRevisionId":101256,"wgArticleId":1539,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Town Locations","Achievements"],"wgBreakFrames":!1,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Museum","wgRelevantArticleId":1539,"wgIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[]});mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","skins.vector.js"]);
+} );</script>
+<link rel="stylesheet" href="/mediawiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.page.gallery.styles%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="/mediawiki/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}</style>
+<script async="" src="/mediawiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.26.2" />
+<meta name="description" content="The Museum can be found in the South-East corner of Pelican Town, south of the Blacksmith." />
+<meta name="twitter:title" content="Museum - Stardew Valley Wiki" />
+<meta name="keywords" content="Stardew Valley Wiki, Stardew Valley, Museum, gift" />
+<link rel="shortcut icon" href="/mediawiki/skins/Vector/stardewimages/favicon.png" />
+<link rel="search" type="application/opensearchdescription+xml" href="/mediawiki/opensearch_desc.php" title="Stardew Valley Wiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://stardewvalleywiki.com/mediawiki/api.php?action=rsd" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Stardew Valley Wiki Atom feed" href="/mediawiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+
+<script src="https://static.nitropay.com/nads/nads-49.min.js"></script>
+
+<meta property="og:title" content="Museum - Stardew Valley Wiki" />
+
+<meta property="og:image" content="https://stardewvalleywiki.com/mediawiki/images/a/ae/Museum.png" />
+
+<meta property="og:type" content="article" />
+
+<meta property="og:site_name" content="Stardew Valley Wiki" />
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mediawiki/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Museum skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="contentwrapper"><div id="adspaceholder"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<div id="mobilelogo"></div>
+			<div style="width:100%;"><div class="responsiveadtop" style="width: 100%; text-align:center; height: 100%; margin: auto; background-color: rgba(255, 255, 255, 0.58); margin-top:-10px; margin-bottom:10px;">
+<div id="stardew_top_responsive" style="max-height:90px;"></div>
+<script type="text/javascript">
+nads.createAd('stardew_top_responsive',
+    {
+        sizes: [],
+        adsensePub: '2969324762379448',
+        adsenseSlot: '5093789219',
+        floor: 0.1,
+        refreshLimit: 10,
+        refreshTime: 30,
+        refreshDisabled: ["adsense"],
+        report: {
+            enabled: true,
+            wording: 'Report Ad',
+            position: 'fixed-bottom-right'
+        }
+    }
+);
+</script>
+</div><div class="sociallinks">
+<a title="Twitter" target=_blank href="https://twitter.com/share?url=https://stardewvalleywiki.com/Museum" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><img border="0" alt="Twitter" src="/mediawiki/skins/Vector/stardewimages/socialicons/Icon_Twitter.png" width="23" height="23"></a>
+<a title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://stardewvalleywiki.com/Museum" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><img border="0" alt="Facebook" src="/mediawiki/skins/Vector/stardewimages/socialicons/Icon_Facebook.png" width="23" height="23"></a>
+<a title="Tumblr" href="https://www.tumblr.com/share/link?url=https://stardewvalleywiki.com/Museum" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><img border="0" alt="Tumblr" src="/mediawiki/skins/Vector/stardewimages/socialicons/Icon_Tumblr.png" width="23" height="23"></a>
+<a title="Reddit" href="https://www.reddit.com/submit?url=https://stardewvalleywiki.com/Museum" target="_blank" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" ><img border="0" alt="Reddit" src="/mediawiki/skins/Vector/stardewimages/socialicons/Icon_Reddit.png" width="23" height="23"></a>
+</div></div><div><div id="googlead">
+</div></div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Museum</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Stardew Valley Wiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="infoboxborder">
+<table class="location" id="infoboxtable">
+<tr>
+<td colspan="2" id="infoboxheader">Stardew Valley Museum &amp; Library
+</td></tr>
+<tr>
+<td colspan="2" id="locationimg"><div class="center"><div class="floatnone"><a href="/File:Museum.png" class="image"><img alt="Museum.png" src="/mediawiki/images/a/ae/Museum.png" width="576" height="512" /></a></div></div>
+</td></tr>
+<tr>
+<td colspan="2"><div id="mapcontainer" style="overflow:hidden;width:400px;height:244px;"><div id="maplocation" style="left:290px;top:130px;"><img alt="Maplocation.png" src="/mediawiki/images/thumb/5/5c/Maplocation.png/20px-Maplocation.png" width="20" height="20" srcset="/mediawiki/images/thumb/5/5c/Maplocation.png/30px-Maplocation.png 1.5x, /mediawiki/images/thumb/5/5c/Maplocation.png/40px-Maplocation.png 2x" /></div><img alt="Map.png" src="/mediawiki/images/4/43/Map.png" width="400" height="244" /></div>
+</td></tr>
+<tr>
+<td id="infoboxsection">Open Hours:
+</td>
+<td id="infoboxdetail">8:00am to 6:00pm
+</td></tr>
+<tr>
+<td id="infoboxsection">Closed:
+</td>
+<td id="infoboxdetail"><a href="/Pelican_Town" title="Pelican Town">Town</a> <a href="/Festivals" title="Festivals">Festival</a> days
+</td></tr>
+<tr>
+<td id="infoboxsection">Address:
+</td>
+<td id="infoboxdetail">East side of <a href="/Pelican_Town" title="Pelican Town">Pelican Town</a>, south of the <a href="/Blacksmith" title="Blacksmith">Blacksmith</a>.
+</td></tr>
+<tr>
+<td id="infoboxsection">Occupants:
+</td>
+<td id="infoboxdetail"><p><img alt="Gunther Icon.png" src="/mediawiki/images/9/91/Gunther_Icon.png" width="32" height="32" /> <a href="/Gunther" title="Gunther">Gunther</a></p>
+</td></tr>
+</table></div><p>The <b>Museum</b> can be found in the South-East corner of <a href="/Pelican_Town" title="Pelican Town">Pelican Town</a>, south of the <a href="/Blacksmith" title="Blacksmith">Blacksmith</a>.
+</p><p>The museum contains a library and a gallery for displaying the museum's collection. At the start of the game, the entire museum collection is empty. <a href="/Gunther" title="Gunther">Gunther</a>, the curator, will ask <a href="/The_Player" title="The Player">The Player</a> to help by donating <a href="/Artifacts" title="Artifacts">Artifacts</a> and <a href="/Minerals" title="Minerals">Minerals</a>, as well as finding the missing <a href="/Lost_Books" title="Lost Books">Lost Books</a> from the library. 
+</p><p>Only a single copy of any particular item may be donated. Items can be rearranged in the donation interface, or by clicking Gunther's desk once the collection is complete.  Donated items may be examined by right-clicking on them. 
+</p><p><a href="/Penny" title="Penny">Penny</a> tutors <a href="/Vincent" title="Vincent">Vincent</a> and <a href="/Jas" title="Jas">Jas</a> in the library on Tuesday, Wednesday, and Friday.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Donation_Rewards"><span class="tocnumber">1</span> <span class="toctext">Donation Rewards</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Total_Donations"><span class="tocnumber">1.1</span> <span class="toctext">Total Donations</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Minerals_Donated"><span class="tocnumber">1.2</span> <span class="toctext">Minerals Donated</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Artifacts_Donated"><span class="tocnumber">1.3</span> <span class="toctext">Artifacts Donated</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Books"><span class="tocnumber">2</span> <span class="toctext">Books</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Achievements"><span class="tocnumber">3</span> <span class="toctext">Achievements</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Notes"><span class="tocnumber">4</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#History"><span class="tocnumber">5</span> <span class="toctext">History</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Donation_Rewards">Donation Rewards</span></h2>
+<p>Gunther offers rewards when the collection has grown to certain points, or for the donation of specific artifacts. 
+</p>
+<h3><span class="mw-headline" id="Total_Donations">Total Donations</span></h3>
+<p>There are 95 items that can be donated to the Museum.
+</p>
+<table class="wikitable sortable">
+<tr>
+<th>Items Donated
+</th>
+<th>Reward
+</th></tr>
+<tr>
+<td style="text-align: center;">5
+</td>
+<td><a href="/File:Cauliflower_Seeds.png" class="image"><img alt="Cauliflower Seeds.png" src="/mediawiki/images/thumb/b/bb/Cauliflower_Seeds.png/32px-Cauliflower_Seeds.png" width="32" height="32" srcset="/mediawiki/images/b/bb/Cauliflower_Seeds.png 1.5x, /mediawiki/images/b/bb/Cauliflower_Seeds.png 2x" /></a> <a href="/Cauliflower_Seeds" title="Cauliflower Seeds">Cauliflower Seeds</a> (9)
+</td></tr>
+<tr>
+<td style="text-align: center;">10
+</td>
+<td><a href="/File:Melon_Seeds.png" class="image"><img alt="Melon Seeds.png" src="/mediawiki/images/thumb/5/5e/Melon_Seeds.png/32px-Melon_Seeds.png" width="32" height="32" srcset="/mediawiki/images/5/5e/Melon_Seeds.png 1.5x, /mediawiki/images/5/5e/Melon_Seeds.png 2x" /></a> <a href="/Melon_Seeds" title="Melon Seeds">Melon Seeds</a> (9)
+</td></tr>
+<tr>
+<td style="text-align: center;">15
+</td>
+<td><a href="/File:Starfruit_Seeds.png" class="image"><img alt="Starfruit Seeds.png" src="/mediawiki/images/thumb/e/e0/Starfruit_Seeds.png/32px-Starfruit_Seeds.png" width="32" height="32" srcset="/mediawiki/images/e/e0/Starfruit_Seeds.png 1.5x, /mediawiki/images/e/e0/Starfruit_Seeds.png 2x" /></a> <a href="/Starfruit_Seeds" title="Starfruit Seeds">Starfruit Seeds</a> (1)
+</td></tr>
+<tr>
+<td style="text-align: center;">20
+</td>
+<td><a href="/File:%27A_Night_On_Eco-Hill%27.png" class="image"><img alt="&#39;A Night On Eco-Hill&#39;.png" src="/mediawiki/images/thumb/8/83/%27A_Night_On_Eco-Hill%27.png/32px-%27A_Night_On_Eco-Hill%27.png" width="32" height="30" srcset="/mediawiki/images/thumb/8/83/%27A_Night_On_Eco-Hill%27.png/48px-%27A_Night_On_Eco-Hill%27.png 1.5x, /mediawiki/images/thumb/8/83/%27A_Night_On_Eco-Hill%27.png/64px-%27A_Night_On_Eco-Hill%27.png 2x" /></a> <a href="/%27A_Night_On_Eco-Hill%27" title="'A Night On Eco-Hill'">'A Night On Eco-Hill'</a> Painting
+</td></tr>
+<tr>
+<td style="text-align: center;">25
+</td>
+<td><a href="/File:%27Jade_Hills%27.png" class="image"><img alt="&#39;Jade Hills&#39;.png" src="/mediawiki/images/thumb/4/44/%27Jade_Hills%27.png/48px-%27Jade_Hills%27.png" width="48" height="29" srcset="/mediawiki/images/thumb/4/44/%27Jade_Hills%27.png/72px-%27Jade_Hills%27.png 1.5x, /mediawiki/images/thumb/4/44/%27Jade_Hills%27.png/96px-%27Jade_Hills%27.png 2x" /></a> <a href="/%27Jade_Hills%27" title="'Jade Hills'">'Jade Hills'</a> Painting
+</td></tr>
+<tr>
+<td style="text-align: center;">30
+</td>
+<td><a href="/File:Lg._Futan_Bear.png" class="image"><img alt="Lg. Futan Bear.png" src="/mediawiki/images/thumb/5/54/Lg._Futan_Bear.png/32px-Lg._Futan_Bear.png" width="32" height="31" srcset="/mediawiki/images/thumb/5/54/Lg._Futan_Bear.png/48px-Lg._Futan_Bear.png 1.5x, /mediawiki/images/thumb/5/54/Lg._Futan_Bear.png/64px-Lg._Futan_Bear.png 2x" /></a> <a href="/Lg._Futan_Bear" title="Lg. Futan Bear">Lg. Futan Bear</a>
+</td></tr>
+<tr>
+<td style="text-align: center;">35
+</td>
+<td><a href="/File:Pumpkin_Seeds.png" class="image"><img alt="Pumpkin Seeds.png" src="/mediawiki/images/thumb/9/99/Pumpkin_Seeds.png/32px-Pumpkin_Seeds.png" width="32" height="32" srcset="/mediawiki/images/9/99/Pumpkin_Seeds.png 1.5x, /mediawiki/images/9/99/Pumpkin_Seeds.png 2x" /></a> <a href="/Pumpkin_Seeds" title="Pumpkin Seeds">Pumpkin Seeds</a> (9)
+</td></tr>
+<tr>
+<td style="text-align: center;">40
+</td>
+<td><a href="/File:Rarecrow_8.png" class="image"><img alt="Rarecrow 8.png" src="/mediawiki/images/thumb/b/bb/Rarecrow_8.png/32px-Rarecrow_8.png" width="32" height="64" srcset="/mediawiki/images/b/bb/Rarecrow_8.png 1.5x, /mediawiki/images/b/bb/Rarecrow_8.png 2x" /></a> <a href="/Scarecrow#Rarecrows" title="Scarecrow">Rarecrow #8</a> (+ <a href="/Achievements" title="Achievements">Treasure Trove Achievement</a>)
+</td></tr>
+<tr>
+<td style="text-align: center;">50
+</td>
+<td><a href="/File:Bear_Statue.png" class="image"><img alt="Bear Statue.png" src="/mediawiki/images/thumb/4/43/Bear_Statue.png/32px-Bear_Statue.png" width="32" height="68" srcset="/mediawiki/images/thumb/4/43/Bear_Statue.png/48px-Bear_Statue.png 1.5x, /mediawiki/images/thumb/4/43/Bear_Statue.png/64px-Bear_Statue.png 2x" /></a> <a href="/Bear_Statue" title="Bear Statue">Bear Statue</a>
+</td></tr>
+<tr>
+<td style="text-align: center;">60
+</td>
+<td><a href="/File:Rusty_Key.png" class="image"><img alt="Rusty Key.png" src="/mediawiki/images/thumb/8/87/Rusty_Key.png/32px-Rusty_Key.png" width="32" height="32" srcset="/mediawiki/images/8/87/Rusty_Key.png 1.5x, /mediawiki/images/8/87/Rusty_Key.png 2x" /></a> <a href="/Rusty_Key" title="Rusty Key">Rusty Key</a> (Gunther will deliver it to you the next day)
+</td></tr>
+<tr>
+<td style="text-align: center;">70
+</td>
+<td><a href="/File:Triple_Shot_Espresso.png" class="image"><img alt="Triple Shot Espresso.png" src="/mediawiki/images/thumb/3/36/Triple_Shot_Espresso.png/32px-Triple_Shot_Espresso.png" width="32" height="32" srcset="/mediawiki/images/3/36/Triple_Shot_Espresso.png 1.5x, /mediawiki/images/3/36/Triple_Shot_Espresso.png 2x" /></a> <a href="/Triple_Shot_Espresso" title="Triple Shot Espresso">Triple Shot Espresso</a> (3)
+</td></tr>
+<tr>
+<td style="text-align: center;">80
+</td>
+<td><a href="/File:Warp_Totem_Farm.png" class="image"><img alt="Warp Totem Farm.png" src="/mediawiki/images/thumb/e/e4/Warp_Totem_Farm.png/32px-Warp_Totem_Farm.png" width="32" height="32" srcset="/mediawiki/images/e/e4/Warp_Totem_Farm.png 1.5x, /mediawiki/images/e/e4/Warp_Totem_Farm.png 2x" /></a> <a href="/Warp_Totem:_Farm" title="Warp Totem: Farm">Warp Totem: Farm</a> (5)
+</td></tr>
+<tr>
+<td style="text-align: center;">90
+</td>
+<td><a href="/File:Magic_Rock_Candy.png" class="image"><img alt="Magic Rock Candy.png" src="/mediawiki/images/thumb/2/25/Magic_Rock_Candy.png/32px-Magic_Rock_Candy.png" width="32" height="32" srcset="/mediawiki/images/2/25/Magic_Rock_Candy.png 1.5x, /mediawiki/images/2/25/Magic_Rock_Candy.png 2x" /></a> <a href="/Magic_Rock_Candy" title="Magic Rock Candy">Magic Rock Candy</a>
+</td></tr>
+<tr>
+<td style="text-align: center;">95 (all items)
+</td>
+<td><a href="/File:Stardrop.png" class="image"><img alt="Stardrop.png" src="/mediawiki/images/thumb/a/a5/Stardrop.png/32px-Stardrop.png" width="32" height="32" srcset="/mediawiki/images/a/a5/Stardrop.png 1.5x, /mediawiki/images/a/a5/Stardrop.png 2x" /></a> <a href="/Stardrop" title="Stardrop">Stardrop</a> (+ <a href="/Achievements" title="Achievements">A Complete Collection Achievement</a>)
+</td></tr></table>
+<h3><span class="mw-headline" id="Minerals_Donated">Minerals Donated</span></h3>
+<p>There are a total of 53 <a href="/Minerals" title="Minerals">Minerals</a> that can be donated.
+</p>
+<table class="wikitable sortable">
+<tr>
+<th>Minerals Donated
+</th>
+<th>Reward
+</th></tr>
+<tr>
+<td style="text-align: center;">11
+</td>
+<td><a href="/File:Standing_Geode.png" class="image"><img alt="Standing Geode.png" src="/mediawiki/images/thumb/b/b0/Standing_Geode.png/32px-Standing_Geode.png" width="32" height="64" srcset="/mediawiki/images/b/b0/Standing_Geode.png 1.5x, /mediawiki/images/b/b0/Standing_Geode.png 2x" /></a> <a href="/Standing_Geode" title="Standing Geode">Standing Geode</a>
+</td></tr>
+<tr>
+<td style="text-align: center;">21
+</td>
+<td><a href="/File:Singing_Stone.png" class="image"><img alt="Singing Stone.png" src="/mediawiki/images/thumb/5/5a/Singing_Stone.png/32px-Singing_Stone.png" width="32" height="64" srcset="/mediawiki/images/5/5a/Singing_Stone.png 1.5x, /mediawiki/images/5/5a/Singing_Stone.png 2x" /></a> <a href="/Singing_Stone" title="Singing Stone">Singing Stone</a>
+</td></tr>
+<tr>
+<td style="text-align: center;">31
+</td>
+<td><a href="/File:Obsidian_Vase.png" class="image"><img alt="Obsidian Vase.png" src="/mediawiki/images/thumb/b/b8/Obsidian_Vase.png/32px-Obsidian_Vase.png" width="32" height="64" srcset="/mediawiki/images/b/b8/Obsidian_Vase.png 1.5x, /mediawiki/images/b/b8/Obsidian_Vase.png 2x" /></a> <a href="/Obsidian_Vase" title="Obsidian Vase">Obsidian Vase</a>
+</td></tr>
+<tr>
+<td style="text-align: center;">41
+</td>
+<td><a href="/File:Crystal_Chair.png" class="image"><img alt="Crystal Chair.png" src="/mediawiki/images/thumb/1/10/Crystal_Chair.png/32px-Crystal_Chair.png" width="32" height="64" srcset="/mediawiki/images/1/10/Crystal_Chair.png 1.5x, /mediawiki/images/1/10/Crystal_Chair.png 2x" /></a> <a href="/Crystal_Chair" title="Crystal Chair">Crystal Chair</a>
+</td></tr>
+<tr>
+<td style="text-align: center;">50
+</td>
+<td><a href="/File:Crystalarium.png" class="image"><img alt="Crystalarium.png" src="/mediawiki/images/thumb/6/63/Crystalarium.png/32px-Crystalarium.png" width="32" height="64" srcset="/mediawiki/images/6/63/Crystalarium.png 1.5x, /mediawiki/images/6/63/Crystalarium.png 2x" /></a> <a href="/Crystalarium" title="Crystalarium">Crystalarium</a>
+</td></tr></table>
+<h3><span class="mw-headline" id="Artifacts_Donated">Artifacts Donated</span></h3>
+<p>There are a total of 42 <a href="/Artifacts" title="Artifacts">Artifacts</a> that can be donated.
+</p><p>To receive the <a href="/%27Burnt_Offering%27" title="'Burnt Offering'">'Burnt Offering'</a> reward, you must have already donated 10 artifacts that include the <a href="/Rare_Disc" title="Rare Disc">Rare Disc</a> and <a href="/Dwarf_Gadget" title="Dwarf Gadget">Dwarf Gadget</a>.  The 11th (or later) donation that meets these conditions will earn you the 'Burnt Offering.'
+</p>
+<table class="wikitable sortable">
+<tr>
+<th>Artifacts Donated
+</th>
+<th>Reward
+</th></tr>
+<tr>
+<td>11 artifacts including:<span id="nametemplate"><img alt="Rare Disc.png" src="/mediawiki/images/thumb/e/e0/Rare_Disc.png/24px-Rare_Disc.png" width="24" height="24" srcset="/mediawiki/images/thumb/e/e0/Rare_Disc.png/36px-Rare_Disc.png 1.5x, /mediawiki/images/e/e0/Rare_Disc.png 2x" /> <a href="/Rare_Disc" title="Rare Disc">Rare Disc</a></span><span id="nametemplate"><img alt="Dwarf Gadget.png" src="/mediawiki/images/thumb/5/58/Dwarf_Gadget.png/24px-Dwarf_Gadget.png" width="24" height="24" srcset="/mediawiki/images/thumb/5/58/Dwarf_Gadget.png/36px-Dwarf_Gadget.png 1.5x, /mediawiki/images/5/58/Dwarf_Gadget.png 2x" /> <a href="/Dwarf_Gadget" title="Dwarf Gadget">Dwarf Gadget</a></span>
+</td>
+<td><span id="nametemplate"><img alt="&#39;Burnt Offering&#39;.png" src="/mediawiki/images/thumb/e/e5/%27Burnt_Offering%27.png/48px-%27Burnt_Offering%27.png" width="48" height="48" srcset="/mediawiki/images/thumb/e/e5/%27Burnt_Offering%27.png/72px-%27Burnt_Offering%27.png 1.5x, /mediawiki/images/e/e5/%27Burnt_Offering%27.png 2x" /> <a href="/%27Burnt_Offering%27" title="'Burnt Offering'">'Burnt Offering'</a></span>
+</td></tr>
+<tr>
+<td>15 artifacts
+</td>
+<td><span id="nametemplate"><img alt="Skeleton Statue.png" src="/mediawiki/images/thumb/7/7d/Skeleton_Statue.png/36px-Skeleton_Statue.png" width="36" height="72" srcset="/mediawiki/images/7/7d/Skeleton_Statue.png 1.5x, /mediawiki/images/7/7d/Skeleton_Statue.png 2x" /> <a href="/Skeleton_Statue" title="Skeleton Statue">Skeleton Statue</a></span>
+</td></tr>
+<tr>
+<td>20 artifacts
+</td>
+<td><a href="/File:Rarecrow_7.png" class="image"><img alt="Rarecrow 7.png" src="/mediawiki/images/thumb/5/52/Rarecrow_7.png/32px-Rarecrow_7.png" width="32" height="64" srcset="/mediawiki/images/5/52/Rarecrow_7.png 1.5x, /mediawiki/images/5/52/Rarecrow_7.png 2x" /></a> <a href="/Scarecrow#Rarecrows" title="Scarecrow">Rarecrow #7</a>
+</td></tr>
+<tr>
+<td>3 artifacts including:<span id="nametemplate"><img alt="Ancient Drum.png" src="/mediawiki/images/thumb/1/1e/Ancient_Drum.png/24px-Ancient_Drum.png" width="24" height="24" srcset="/mediawiki/images/thumb/1/1e/Ancient_Drum.png/36px-Ancient_Drum.png 1.5x, /mediawiki/images/1/1e/Ancient_Drum.png 2x" /> <a href="/Ancient_Drum" title="Ancient Drum">Ancient Drum</a></span>
+</td>
+<td><span id="nametemplate"><img alt="Drum Block.png" src="/mediawiki/images/thumb/d/dc/Drum_Block.png/32px-Drum_Block.png" width="32" height="32" srcset="/mediawiki/images/d/dc/Drum_Block.png 1.5x, /mediawiki/images/d/dc/Drum_Block.png 2x" /> <a href="/Drum_Block" title="Drum Block">Drum Block</a></span>
+</td></tr>
+<tr>
+<td><span id="nametemplate"><img alt="Ancient Seed.png" src="/mediawiki/images/thumb/a/af/Ancient_Seed.png/24px-Ancient_Seed.png" width="24" height="24" srcset="/mediawiki/images/thumb/a/af/Ancient_Seed.png/36px-Ancient_Seed.png 1.5x, /mediawiki/images/a/af/Ancient_Seed.png 2x" /> <a href="/Ancient_Seed" title="Ancient Seed">Ancient Seed</a></span>
+</td>
+<td><a href="/File:Ancient_Seeds.png" class="image"><img alt="Ancient Seeds.png" src="/mediawiki/images/thumb/e/ec/Ancient_Seeds.png/32px-Ancient_Seeds.png" width="32" height="32" srcset="/mediawiki/images/e/ec/Ancient_Seeds.png 1.5x, /mediawiki/images/e/ec/Ancient_Seeds.png 2x" /></a> <a href="/Ancient_Seeds" title="Ancient Seeds">Ancient Seeds</a> (1) + Crafting Recipe
+</td></tr>
+<tr>
+<td>3 artifacts including:<span id="nametemplate"><img alt="Bone Flute.png" src="/mediawiki/images/thumb/f/fc/Bone_Flute.png/24px-Bone_Flute.png" width="24" height="24" srcset="/mediawiki/images/thumb/f/fc/Bone_Flute.png/36px-Bone_Flute.png 1.5x, /mediawiki/images/f/fc/Bone_Flute.png 2x" /> <a href="/Bone_Flute" title="Bone Flute">Bone Flute</a></span>
+</td>
+<td><span id="nametemplate"><img alt="Flute Block.png" src="/mediawiki/images/thumb/3/31/Flute_Block.png/32px-Flute_Block.png" width="32" height="32" srcset="/mediawiki/images/3/31/Flute_Block.png 1.5x, /mediawiki/images/3/31/Flute_Block.png 2x" /> <a href="/Flute_Block" title="Flute Block">Flute Block</a></span>
+</td></tr>
+<tr>
+<td>5 artifacts including:<span id="nametemplate"><img alt="Chicken Statue.png" src="/mediawiki/images/thumb/a/af/Chicken_Statue.png/24px-Chicken_Statue.png" width="24" height="24" srcset="/mediawiki/images/thumb/a/af/Chicken_Statue.png/36px-Chicken_Statue.png 1.5x, /mediawiki/images/a/af/Chicken_Statue.png 2x" /> <a href="/Chicken_Statue" title="Chicken Statue">Chicken Statue</a></span>
+</td>
+<td><img alt="Chicken Statue (furniture).png" src="/mediawiki/images/thumb/f/f9/Chicken_Statue_%28furniture%29.png/32px-Chicken_Statue_%28furniture%29.png" width="32" height="64" srcset="/mediawiki/images/f/f9/Chicken_Statue_%28furniture%29.png 1.5x, /mediawiki/images/f/f9/Chicken_Statue_%28furniture%29.png 2x" /> <a href="/Chicken_Statue_(furniture)" title="Chicken Statue (furniture)">Chicken Statue</a>
+</td></tr>
+<tr>
+<td><span id="nametemplate"><img alt="Dwarf Scroll I.png" src="/mediawiki/images/thumb/b/b9/Dwarf_Scroll_I.png/24px-Dwarf_Scroll_I.png" width="24" height="24" srcset="/mediawiki/images/thumb/b/b9/Dwarf_Scroll_I.png/36px-Dwarf_Scroll_I.png 1.5x, /mediawiki/images/b/b9/Dwarf_Scroll_I.png 2x" /> <a href="/Dwarf_Scroll_I" title="Dwarf Scroll I">Dwarf Scroll I</a></span><span id="nametemplate"><img alt="Dwarf Scroll II.png" src="/mediawiki/images/thumb/c/ca/Dwarf_Scroll_II.png/24px-Dwarf_Scroll_II.png" width="24" height="24" srcset="/mediawiki/images/thumb/c/ca/Dwarf_Scroll_II.png/36px-Dwarf_Scroll_II.png 1.5x, /mediawiki/images/c/ca/Dwarf_Scroll_II.png 2x" /> <a href="/Dwarf_Scroll_II" title="Dwarf Scroll II">Dwarf Scroll II</a></span><span id="nametemplate"><img alt="Dwarf Scroll III.png" src="/mediawiki/images/thumb/e/ec/Dwarf_Scroll_III.png/24px-Dwarf_Scroll_III.png" width="24" height="24" srcset="/mediawiki/images/thumb/e/ec/Dwarf_Scroll_III.png/36px-Dwarf_Scroll_III.png 1.5x, /mediawiki/images/e/ec/Dwarf_Scroll_III.png 2x" /> <a href="/Dwarf_Scroll_III" title="Dwarf Scroll III">Dwarf Scroll III</a></span><span id="nametemplate"><img alt="Dwarf Scroll IV.png" src="/mediawiki/images/thumb/8/85/Dwarf_Scroll_IV.png/24px-Dwarf_Scroll_IV.png" width="24" height="24" srcset="/mediawiki/images/thumb/8/85/Dwarf_Scroll_IV.png/36px-Dwarf_Scroll_IV.png 1.5x, /mediawiki/images/8/85/Dwarf_Scroll_IV.png 2x" /> <a href="/Dwarf_Scroll_IV" title="Dwarf Scroll IV">Dwarf Scroll IV</a></span>
+</td>
+<td><span id="nametemplate"><img alt="Dwarvish Translation Guide.png" src="/mediawiki/images/thumb/9/9c/Dwarvish_Translation_Guide.png/36px-Dwarvish_Translation_Guide.png" width="36" height="36" srcset="/mediawiki/images/9/9c/Dwarvish_Translation_Guide.png 1.5x, /mediawiki/images/9/9c/Dwarvish_Translation_Guide.png 2x" /> <a href="/Dwarvish_Translation_Guide" title="Dwarvish Translation Guide">Dwarvish Translation Guide</a></span>
+</td></tr>
+<tr>
+<td><span id="nametemplate"><img alt="Prehistoric Skull.png" src="/mediawiki/images/thumb/5/58/Prehistoric_Skull.png/24px-Prehistoric_Skull.png" width="24" height="24" srcset="/mediawiki/images/thumb/5/58/Prehistoric_Skull.png/36px-Prehistoric_Skull.png 1.5x, /mediawiki/images/5/58/Prehistoric_Skull.png 2x" /> <a href="/Prehistoric_Skull" title="Prehistoric Skull">Prehistoric Skull</a></span><span id="nametemplate"><img alt="Skeletal Hand.png" src="/mediawiki/images/thumb/d/da/Skeletal_Hand.png/24px-Skeletal_Hand.png" width="24" height="24" srcset="/mediawiki/images/thumb/d/da/Skeletal_Hand.png/36px-Skeletal_Hand.png 1.5x, /mediawiki/images/d/da/Skeletal_Hand.png 2x" /> <a href="/Skeletal_Hand" title="Skeletal Hand">Skeletal Hand</a></span><span id="nametemplate"><img alt="Prehistoric Scapula.png" src="/mediawiki/images/thumb/e/ee/Prehistoric_Scapula.png/24px-Prehistoric_Scapula.png" width="24" height="24" srcset="/mediawiki/images/thumb/e/ee/Prehistoric_Scapula.png/36px-Prehistoric_Scapula.png 1.5x, /mediawiki/images/e/ee/Prehistoric_Scapula.png 2x" /> <a href="/Prehistoric_Scapula" title="Prehistoric Scapula">Prehistoric Scapula</a></span>
+</td>
+<td><span id="nametemplate"><img alt="Sloth Skeleton L.png" src="/mediawiki/images/thumb/6/6e/Sloth_Skeleton_L.png/36px-Sloth_Skeleton_L.png" width="36" height="68" srcset="/mediawiki/images/6/6e/Sloth_Skeleton_L.png 1.5x, /mediawiki/images/6/6e/Sloth_Skeleton_L.png 2x" /> <a href="/Sloth_Skeleton" title="Sloth Skeleton">Sloth Skeleton L</a></span>
+</td></tr>
+<tr>
+<td><span id="nametemplate"><img alt="Prehistoric Rib.png" src="/mediawiki/images/thumb/6/62/Prehistoric_Rib.png/24px-Prehistoric_Rib.png" width="24" height="24" srcset="/mediawiki/images/thumb/6/62/Prehistoric_Rib.png/36px-Prehistoric_Rib.png 1.5x, /mediawiki/images/6/62/Prehistoric_Rib.png 2x" /> <a href="/Prehistoric_Rib" title="Prehistoric Rib">Prehistoric Rib</a></span><span id="nametemplate"><img alt="Prehistoric Vertebra.png" src="/mediawiki/images/thumb/e/e9/Prehistoric_Vertebra.png/24px-Prehistoric_Vertebra.png" width="24" height="24" srcset="/mediawiki/images/thumb/e/e9/Prehistoric_Vertebra.png/36px-Prehistoric_Vertebra.png 1.5x, /mediawiki/images/e/e9/Prehistoric_Vertebra.png 2x" /> <a href="/Prehistoric_Vertebra" title="Prehistoric Vertebra">Prehistoric Vertebra</a></span>
+</td>
+<td><span id="nametemplate"><img alt="Sloth Skeleton M.png" src="/mediawiki/images/thumb/b/be/Sloth_Skeleton_M.png/36px-Sloth_Skeleton_M.png" width="36" height="68" srcset="/mediawiki/images/b/be/Sloth_Skeleton_M.png 1.5x, /mediawiki/images/b/be/Sloth_Skeleton_M.png 2x" /> <a href="/Sloth_Skeleton" title="Sloth Skeleton">Sloth Skeleton M</a></span>
+</td></tr>
+<tr>
+<td><span id="nametemplate"><img alt="Prehistoric Tibia.png" src="/mediawiki/images/thumb/c/ce/Prehistoric_Tibia.png/24px-Prehistoric_Tibia.png" width="24" height="24" srcset="/mediawiki/images/thumb/c/ce/Prehistoric_Tibia.png/36px-Prehistoric_Tibia.png 1.5x, /mediawiki/images/c/ce/Prehistoric_Tibia.png 2x" /> <a href="/Prehistoric_Tibia" title="Prehistoric Tibia">Prehistoric Tibia</a></span><span id="nametemplate"><img alt="Skeletal Tail.png" src="/mediawiki/images/thumb/2/29/Skeletal_Tail.png/24px-Skeletal_Tail.png" width="24" height="24" srcset="/mediawiki/images/thumb/2/29/Skeletal_Tail.png/36px-Skeletal_Tail.png 1.5x, /mediawiki/images/2/29/Skeletal_Tail.png 2x" /> <a href="/Skeletal_Tail" title="Skeletal Tail">Skeletal Tail</a></span>
+</td>
+<td><span id="nametemplate"><img alt="Sloth Skeleton R.png" src="/mediawiki/images/thumb/e/e7/Sloth_Skeleton_R.png/36px-Sloth_Skeleton_R.png" width="36" height="68" srcset="/mediawiki/images/e/e7/Sloth_Skeleton_R.png 1.5x, /mediawiki/images/e/e7/Sloth_Skeleton_R.png 2x" /> <a href="/Sloth_Skeleton" title="Sloth Skeleton">Sloth Skeleton R</a></span>
+</td></tr></table>
+<h2><span class="mw-headline" id="Books">Books</span></h2>
+<dl><dd><i>See: <a href="/Lost_Books" title="Lost Books">Lost Books</a></i></dd></dl>
+<h2><span class="mw-headline" id="Achievements">Achievements</span></h2>
+<p>There are 2 <a href="/Achievements" title="Achievements">Achievements</a> associated with donating <a href="/Artifacts" title="Artifacts">Artifacts</a> or <a href="/Minerals" title="Minerals">Minerals</a> to the Museum.
+</p>
+<ul><li>Treasure Trove (Donate 40 different items to the museum)</li>
+<li>A Complete Collection (Complete the museum collection)</li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span></h2>
+<ul><li>There is a total of 102 spaces available for donations to be placed but a total of only 95 available items to be donated. Six spaces in the center of the largest table cannot be reached to examine items placed on them, so it may be advisable to leave this area empty.
+<ul><li>If using a controller, any diagonal item may be unreachable for examination once donated.</li></ul></li>
+<li>In order to move items inside the donation interface on the Switch, you'll have to go into "Options" and disable "Use Controller Style Menus".</li></ul>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 304.66666666667px"><div style="width: 304.66666666667px">
+			<div class="thumb" style="width: 302.66666666667px;"><div style="margin:0px auto;"><a href="/File:Stardew_Museum_Interior.png" class="image"><img alt="" src="/mediawiki/images/thumb/2/2d/Stardew_Museum_Interior.png/454px-Stardew_Museum_Interior.png" width="303" height="240" srcset="/mediawiki/images/thumb/2/2d/Stardew_Museum_Interior.png/682px-Stardew_Museum_Interior.png 1.5x, /mediawiki/images/thumb/2/2d/Stardew_Museum_Interior.png/909px-Stardew_Museum_Interior.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Museum Interior with unreachable tiles shaded
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 304.66666666667px"><div style="width: 304.66666666667px">
+			<div class="thumb" style="width: 302.66666666667px;"><div style="margin:0px auto;"><a href="/File:Stardew_Museum_Organized.png" class="image"><img alt="" src="/mediawiki/images/thumb/6/64/Stardew_Museum_Organized.png/454px-Stardew_Museum_Organized.png" width="303" height="240" srcset="/mediawiki/images/thumb/6/64/Stardew_Museum_Organized.png/682px-Stardew_Museum_Organized.png 1.5x, /mediawiki/images/thumb/6/64/Stardew_Museum_Organized.png/909px-Stardew_Museum_Organized.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>One example of an organized complete collection
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="History">History</span></h2>
+<ul><li> <a href="/Version_History#1.4" title="Version History">1.4</a>: Added donation rewards for 35, 70, 80, and 90 items donated. Added ability to rearrange the museum artifacts after collection is complete.  Fixed bug where movement of inventory inside donation screen would prevent donation of items.</li></ul>
+<table class="wikitable" id="navbox">
+<tr>
+<th colspan="3"> Buildings
+</th></tr>
+<tr>
+<th colspan="2"> Merchants
+</th>
+<td><a href="/Abandoned_House" title="Abandoned House">Abandoned House</a> • <a href="/Adventurer%27s_Guild" title="Adventurer's Guild">Adventurer's Guild</a> • <a href="/Blacksmith" title="Blacksmith">Blacksmith</a> • <a href="/Carpenter%27s_Shop" title="Carpenter's Shop">Carpenter's Shop</a> • <a href="/Casino" title="Casino">Casino</a> • <a href="/Desert_Trader" title="Desert Trader">Desert Trader</a> • <a href="/Fish_Shop" title="Fish Shop">Fish Shop</a> • <a href="/Harvey%27s_Clinic" title="Harvey's Clinic">Harvey's Clinic</a> • <a href="/Ice_Cream_Stand" title="Ice Cream Stand">Ice Cream Stand</a> • <a href="/JojaMart" title="JojaMart">JojaMart</a> • <a href="/Marnie%27s_Ranch" title="Marnie's Ranch">Marnie's Ranch</a> • <a href="/Oasis" title="Oasis">Oasis</a> • <a href="/Pierre%27s_General_Store" title="Pierre's General Store">Pierre's General Store</a> • <a href="/The_Stardrop_Saloon" title="The Stardrop Saloon">The Stardrop Saloon</a> • <a href="/Traveling_Cart" title="Traveling Cart">Traveling Cart</a> • <a href="/Wizard%27s_Tower" title="Wizard's Tower">Wizard's Tower</a>
+</td></tr>
+<tr>
+<th colspan="2"> Houses
+</th>
+<td><a href="/1_River_Road" title="1 River Road">1 River Road</a> • <a href="/Trailer" title="Trailer">2 River Road</a> • <a href="/1_Willow_Lane" title="1 Willow Lane">1 Willow Lane</a> • <a href="/2_Willow_Lane" title="2 Willow Lane">2 Willow Lane</a> • <a href="/Carpenter%27s_Shop" title="Carpenter's Shop">24 Mountain Road</a> • <a href="/Elliott%27s_Cabin" title="Elliott's Cabin">Elliott's Cabin</a> • <a href="/Farmhouse" title="Farmhouse">Farmhouse</a> • <a href="/Leah%27s_Cottage" title="Leah's Cottage">Leah's Cottage</a> • <a href="/Mayor%27s_Manor" title="Mayor's Manor">Mayor's Manor</a> • <a href="/Tent" title="Tent">Tent</a> • <a href="/Trailer" title="Trailer">Trailer</a>
+</td></tr>
+<tr>
+<th rowspan="2">Farm Buildings
+</th>
+<th>Farming
+</th>
+<td><a href="/Barn" title="Barn">Barn</a> • <a href="/Cabin" title="Cabin">Cabin</a> • <a href="/Coop" title="Coop">Coop</a> • <a href="/Fish_Pond" title="Fish Pond">Fish Pond</a> • <a href="/Greenhouse" title="Greenhouse">Greenhouse</a> • <a href="/Mill" title="Mill">Mill</a> • <a href="/Shed" title="Shed">Shed</a>  • <a href="/Silo" title="Silo">Silo</a> • <a href="/Slime_Hutch" title="Slime Hutch">Slime Hutch</a> • <a href="/Stable" title="Stable">Stable</a> • <a href="/Well" title="Well">Well</a>
+</td></tr>
+<tr>
+<th>Special
+</th>
+<td><a href="/Desert_Obelisk" title="Desert Obelisk">Desert Obelisk</a> • <a href="/Earth_Obelisk" title="Earth Obelisk">Earth Obelisk</a> • <a href="/Gold_Clock" title="Gold Clock">Gold Clock</a> • <a href="/Junimo_Hut" title="Junimo Hut">Junimo Hut</a> • <a href="/Water_Obelisk" title="Water Obelisk">Water Obelisk</a>
+</td></tr>
+<tr>
+<th colspan="2"> Other Buildings
+</th>
+<td><a href="/Community_Center" title="Community Center">Community Center</a> • <a href="/Dog_Pen" title="Dog Pen">Dog Pen</a> • <a href="/Joja_Warehouse" title="Joja Warehouse">Joja Warehouse</a> • <a href="/Movie_Theater" title="Movie Theater">Movie Theater</a> • <strong class="selflink">Museum</strong> • <a href="/Spa" title="Spa">Spa</a> • <a href="/Witch%27s_Hut" title="Witch's Hut">Witch's Hut</a>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Cached time: 20200909160353
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.213 seconds
+Real time usage: 0.262 seconds
+Preprocessor visited node count: 1355/1000000
+Preprocessor generated node count: 2433/1000000
+Post‐expand include size: 7624/2097152 bytes
+Template argument size: 1973/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  115.516      1 - -total
+ 53.75%   62.091     25 - Template:Name
+ 17.45%   20.159      1 - Template:Infobox_location
+  5.02%    5.803      1 - Template:History
+  3.87%    4.474      1 - Template:Map
+  3.16%    3.645      1 - Template:Version
+  2.91%    3.367      1 - Template:InfoboxSEO
+  1.69%    1.956      1 - Template:NPC
+  1.67%    1.928      1 - Template:NavboxBuildings
+-->
+
+<!-- Saved in parser cache with key wzfhxpxdqs:pcache:idhash:1539-0!*!0!!en!5!* and timestamp 20200909160352 and revision id 101256
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://stardewvalleywiki.com/mediawiki/index.php?title=Museum&amp;oldid=101256">https://stardewvalleywiki.com/mediawiki/index.php?title=Museum&amp;oldid=101256</a>"					</div>
+				<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/Category:Town_Locations" title="Category:Town Locations">Town Locations</a></li><li><a href="/Category:Achievements" title="Category:Achievements">Achievements</a></li></ul></div></div>				<div class="visualClear"></div>
+				<div style="width:100%;"><div style="width: 100%; text-align:center; height: 100%; margin: auto; background-color: rgba(255, 255, 255, 0.58); margin-top:10px; margin-bottom:-10px;">
+<div id="stardew_bottom_responsive"></div>
+<script type="text/javascript">
+nads.createAd('stardew_bottom_responsive',
+    {
+        sizes: [],
+        adsensePub: '2969324762379448',
+        adsenseSlot: '6570522419',
+        floor: 0.1,
+        refreshLimit: 10,
+        refreshTime: 30,
+        renderVisibleOnly: true,
+        refreshVisibleOnly: true,
+        refreshDisabled: ["adsense"],
+        report: {
+            enabled: true,
+            wording: 'Report Ad',
+            position: 'fixed-bottom-right'
+        }
+    }
+);
+</script>
+</div></div>
+				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=Museum&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/mediawiki/index.php?title=Special:UserLogin&amp;returnto=Museum" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/Museum"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk"><span><a href="/Talk:Museum"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/Museum" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/mediawiki/index.php?title=Museum&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/mediawiki/index.php?title=Museum&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/mediawiki/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Stardew Valley Wiki [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton" />							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/Stardew_Valley_Wiki"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="/Stardew_Valley_Wiki" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-Admin-noticeboard"><a href="/Stardew_Valley_Wiki:Admin_noticeboard">Admin noticeboard</a></li><li id="n-randompage"><a href="/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Official_Links' aria-labelledby='p-Official_Links-label'>
+			<h3 id='p-Official_Links-label'>Official Links</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Official-Site"><a href="https://stardewvalley.net" rel="nofollow" target="_blank">Official Site</a></li><li id="n-Official-Forums"><a href="https://forums.stardewvalley.net/" rel="nofollow" target="_blank">Official Forums</a></li><li id="n-Official-Merchandise"><a href="https://www.stardewvalley.net/shop/" rel="nofollow" target="_blank">Official Merchandise</a></li><li id="n-Reddit"><a href="https://www.reddit.com/r/StardewValley" rel="nofollow" target="_blank">Reddit</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/Special:WhatLinksHere/Museum" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/Special:RecentChangesLinked/Museum" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/mediawiki/index.php?title=Museum&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/mediawiki/index.php?title=Museum&amp;oldid=101256" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/mediawiki/index.php?title=Museum&amp;action=info" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>In other languages</h3>
+
+			<div class="body">
+									<ul>
+						<li class="interlanguage-link interwiki-de"><a href="https://de.stardewvalleywiki.com/Museum" title="Museum – Deutsch" lang="de" hreflang="de">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.stardewvalleywiki.com/Museo" title="Museo – español" lang="es" hreflang="es">Español</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.stardewvalleywiki.com/Mus%C3%A9e" title="Musée – français" lang="fr" hreflang="fr">Français</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.stardewvalleywiki.com/Museo" title="Museo – italiano" lang="it" hreflang="it">Italiano</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.stardewvalleywiki.com/%E5%8D%9A%E7%89%A9%E9%A4%A8" title="博物館 – 日本語" lang="ja" hreflang="ja">日本語</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.stardewvalleywiki.com/%EB%B0%95%EB%AC%BC%EA%B4%80" title="박물관 – 한국어" lang="ko" hreflang="ko">한국어</a></li><li class="interlanguage-link interwiki-hu"><a href="https://hu.stardewvalleywiki.com/M%C3%BAzeum" title="Múzeum – magyar" lang="hu" hreflang="hu">Magyar</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.stardewvalleywiki.com/Museu" title="Museu – português" lang="pt" hreflang="pt">Português</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.stardewvalleywiki.com/%D0%9C%D1%83%D0%B7%D0%B5%D0%B9" title="Музей – русский" lang="ru" hreflang="ru">Русский</a></li><li class="interlanguage-link interwiki-tr"><a href="https://tr.stardewvalleywiki.com/M%C3%BCze" title="Müze – Türkçe" lang="tr" hreflang="tr">Türkçe</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.stardewvalleywiki.com/%E5%8D%9A%E7%89%A9%E9%A6%86" title="博物馆 – 中文" lang="zh" hreflang="zh">中文</a></li>					</ul>
+							</div>
+		</div>
+				<div id="side-adspace" style="height:100%;"><div style="width: 100%; text-align:center; height: 100%; margin: auto; background-color: rgba(255, 255, 255, 0.58);">
+<div id="stardew_vertical_sidebar"></div>
+<script type="text/javascript">
+nads.createAd('stardew_vertical_sidebar',
+    {
+        sizes: [],
+        adsensePub: '2969324762379448',
+        adsenseSlot: '4552456012',
+        floor: 0.1,
+        refreshLimit: 10,
+        refreshTime: 30,
+        refreshDisabled: ["adsense"],
+        report: {
+            enabled: true,
+            wording: 'Report Ad',
+            position: 'fixed-bottom-right'
+        }
+    }
+);
+</script>
+</div></div></div>
+		</div></div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 21 June 2020, at 15:20.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/Stardew_Valley_Wiki:Privacy_policy" title="Stardew Valley Wiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/Stardew_Valley_Wiki:About" title="Stardew Valley Wiki:About">About Stardew Valley Wiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/Stardew_Valley_Wiki:General_disclaimer" title="Stardew Valley Wiki:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-mobileview"><a href="https://stardewvalleywiki.com/mediawiki/index.php?title=Museum&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+							<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img src="/mediawiki/resources/assets/licenses/cc-by-nc-sa.png" alt="Creative Commons Attribution-NonCommercial-ShareAlike" width="88" height="31" /></a>						</li>
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/mediawiki/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mediawiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mediawiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>						</li>
+										<li id="hosted-by">
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>window.RLQ = window.RLQ || []; window.RLQ.push( function () {
+mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.page.gallery","mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"]);
+} );</script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42436586-3', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+<script>window.RLQ = window.RLQ || []; window.RLQ.push( function () {
+mw.config.set({"wgBackendResponseTime":72});
+} );</script>
+	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"4b66539c25","applicationID":"359151563","transactionName":"NFBTNkdZX0NWUEQMDg0acAFBUV5eGFJTEQgMWx4UXF1G","queueTime":0,"applicationTime":82,"atts":"GBdQQA9DTE0=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
